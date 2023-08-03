@@ -9,7 +9,6 @@ import os, threading, requests, cloudscraper, datetime, time, socket, socks, ssl
 import socket
 from urllib.parse import urlparse
 from requests.cookies import RequestsCookieJar
-import undetected_chromedriver as webdriver
 from sys import stdout
 from colorama import Fore, init
 from sys import argv
